@@ -116,7 +116,7 @@
             <div class="ans">
                 <h3 id="result" style="margin-top: -2px; font-size: 25pxs"></h3>
             </div>
-            <div class="ans" style="margin-top: -74px; margin-left: 1000px; height: 130px; width: 300px;">
+            <div class="ans" style="margin-top: -74px; margin-left: 900px; height: 130px; width: 300px;">
                 <p id="Solution" style="margin-top: -4px; font-size: 15px; color: solid black; font-size: 20px;"></p>
             </div>
             <script>
