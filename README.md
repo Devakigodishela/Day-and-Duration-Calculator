@@ -18,7 +18,7 @@ Day and Duration Calculator is a web-based application developed using HTML, CSS
 ## How to Run
 1. Install Java JDK.
 2. Install Apache Tomcat.
-3. Copy the DayCalculator project folder into Tomcat's `webapps` directory.
+3. Copy the `DayCalculator` project folder into Tomcat's `webapps` directory.
 4. Start the Tomcat server.
 5. Open your browser and visit:
    
