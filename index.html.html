@@ -1,0 +1,283 @@
+<html>
+    <head>
+        <title>
+            FirstMiniProject
+        </title>
+        <style>
+            body{
+                font-family: cursive;
+                text-align: center;
+                background-image: url("c:\Users\HP\Downloads\Pastel Math Symbol Confetti Pattern.png");
+            }
+            h1{
+                margin-top: 20px;
+                color:blue
+            }
+            .box{
+                border: 2px solid black;
+                border-radius: 20px;
+                padding: 40px;
+                width: 200px;
+                height: 100px;
+            }
+            button{
+                cursor: pointer;
+                background-color: rgb(241, 116, 221);
+                border: 2px solid black;
+                border-radius: 10px;
+                height: 30px;
+                font-size: 15px;
+            }
+            .ans{
+                border: 2px solid green;
+                border-radius: 20px;
+                background-color: white;
+                color: black;
+                padding: 15px;
+                width: 200px;
+                height: 30px;
+                margin-top: 110px;
+                margin-right: 450px;
+            }
+            input{
+                border: 2px solid black;
+                border-radius: 10px;
+                height: 25px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Let's Calculate</h1>
+            <div style="border: 4px solid black;
+                border-radius: 20px;
+                padding: 20px; 
+                width: 150px;
+                height: 570px;
+                margin-right: 1300px;
+                margin-top: -72px">
+                31 - Jan - 1<br><br>
+                28 - Feb - 2<br>
+                (29, if it is a leap year)<br><br>
+                31 - March - 3<br><br>
+                30 - April - 4<br><br>
+                31 - May - 5<br><br>
+                30 - June - 6<br><br>
+                31 - July - 7<br><br>
+                31 - Aug - 8<br><br>
+                30 - Sep - 9<br><br>
+                31 - Oct - 10<br><br>
+                30 - Nov - 11<br><br>
+                31 - Dec - 12
+            </div>
+            <h2 style="margin-right: 450px; margin-top: -550px;">Day Calculator</h2>
+            <h2 style="margin-left: 650px; margin-top: -50px;">Duration Calculator</h2>
+            <div style="border: 2px solid black;
+                border-radius: 20px;
+                background-color: greenyellow;
+                padding: 40px;
+                width: 250px;
+                height: 150px; 
+                margin-right: 450px;
+                margin-top: 25px;">
+                <div class="box" style="margin-top: -15px; margin-left: -18px; background-color: aquamarine;">
+                    Year: <input id="y" type="number" placeholder="year" min="1" max="9999"><br><br>
+                    Month: <input id="m" type="number" placeholder="month" min="1" max="12"><br><br>
+                    Date: <input id="d" type="number" placeholder="date" min="1" max="31"><br><br><br>
+                    <button id="B" style="margin-top: 35px;">Click here to get Day</button>
+                </div>
+            </div>
+            <div style="border: 2px solid black;
+                border-radius: 20px;
+                background-color: greenyellow;
+                padding: 40px;
+                width: 550px;
+                height: 150px;
+                margin-top: -235px;
+                margin-left: 640px;">
+                <div class="box" style="margin-right: 280px; margin-left: -20px; margin-top: -17px; background-color: aquamarine;">
+                    Latest Year: <input id="gy" type="number" placeholder="year" min="1" max="9999"><br><br>
+                    Month: <input id="gm" type="number" placeholder="month" min="1" max="12"><br><br>
+                    Date: <input id="gd" type="number" placeholder="date" min="1" max="31"><br><br><br>
+                </div>
+                <div class="box" style="margin-left: 285px; margin-top: -185px; background-color: aquamarine;">
+                    Older Year: <input id="ly" type="number" placeholder="year" min="1" max="9999"><br><br>
+                    Month: <input id="lm" type="number" placeholder="month" min="1" max="12"><br><br>
+                    Date: <input id="ld" type="number" placeholder="date" min="1" max="31"><br><br><br>
+                </div>
+                <button id="D" style="margin-top: 60px;">Click here for Number of Days</button>
+            </div>
+            <div class="ans">
+                <h3 id="result" style="margin-top: -5px; font-size: 20px"></h3>
+            </div>
+            <div class="ans" style="margin-top: -94px; margin-left: 900px; height: 140px; width: 300px;">
+                <p id="Solution" style="margin-top: -4px; font-size: 10px; color: solid black; font-size: 20px;"></p>
+            </div>
+            <script>
+            const B = document.getElementById("B")
+            let dat = document.getElementById("d")
+            const mont = document.getElementById("m")
+            const yea = document.getElementById("y")
+            const result = document.getElementById("result")
+            B.addEventListener("click", function(){
+                    let date = Number(dat.value)
+                    const month = Number(mont.value)
+                    const year = Number(yea.value)
+                    let f = date;
+                    let x = (Number)(year%100)-1;
+                    let d = 0;
+                    let q = [];
+                    q[0] = 31;
+                    q[1] = 28;
+                    q[2] = 31;
+                    q[3] = 30;
+                    q[4] = 31;
+                    q[5] = 30;
+                    q[6] = 31;
+                    q[7] = 31;
+                    q[8] = 30;
+                    q[9] = 31;
+                    q[10] = 30;
+                    q[11] = 31;
+                    for(i=year-1-x; i>0; i-=100){
+                        if(i%400==0){
+                            d=i;
+                            break;
+                        }
+                    }
+                    let a=year-1-x-d;
+                    let odd=0;
+                    switch(a){
+                        case 100: odd = 5; break;
+                        case 200: odd = 3; break;
+                        case 300: odd = 1; break;
+                        default: odd = 0; break;
+                    }
+                    d = Math.floor(x/4);
+                    a = x - d;
+                    odd += (d*2 + a)%7;
+                    odd %= 7;
+                    if(year%400==0 || year%4==0 && year%100!=0){
+                        q[1] = 29;
+                    }
+                    for(i = month-2; i>=0; i--){
+                        date += q[i];
+                    }
+                    odd += date%7;
+                    odd %= 7;
+                    switch(odd){
+                        case 1: result.textContent = "MONDAY"; break;
+                        case 2: result.textContent = "TUESDAY"; break;
+                        case 3: result.textContent = "WEDNESDAY"; break;
+                        case 4: result.textContent = "THURSDAY"; break;
+                        case 5: result.textContent = "FRIDAY"; break;
+                        case 6: result.textContent = "SATURDAY"; break;
+                        case 0: result.textContent = "SUNDAY"; break;
+                        default: result.textContent = "INVALID INPUT"; break;
+                    }
+                });
+            </script>
+            <script>
+                const D = document.getElementById("D")
+                const c = [];
+                c[0] = document.getElementById("ld")
+                c[1] = document.getElementById("lm")
+                c[2] = document.getElementById("ly")
+                const d = [];
+                d[0] = document.getElementById("gd")
+                d[1] = document.getElementById("gm")
+                d[2] = document.getElementById("gy")
+                const Solution = document.getElementById("Solution")
+                D.addEventListener("click",function(){
+                    c[0] = Number(c[0].value)
+                    c[1] = Number(c[1].value)
+                    c[2] = Number(c[2].value)
+                    d[0] = Number(d[0].value)
+                    d[1] = Number(d[1].value)
+                    d[2] = Number(d[2].value)
+                    let e = [];
+                    e[0] = 31;
+                    e[1] = 28;
+                    e[2] = 31;
+                    e[3] = 30;
+                    e[4] = 31;
+                    e[5] = 30;
+                    e[6] = 31;
+                    e[7] = 31;
+                    e[8] = 30;
+                    e[9] = 31;
+                    e[10] = 30;
+                    e[11] = 31;
+                    let year = 0;
+                    let month = 0;
+                    let dat = 0;
+                    if(c[2]==d[2]){
+                        for(let i=c[1]+1; i<d[1]; i++){
+                            month++;
+                        }
+                    }else{
+                        for(let i=c[2]; i<=d[2]; i++){
+                            if(i==c[2]){
+                                month += 12-c[1];
+                            }else if(i==d[2]){
+                                month += d[1]-1;
+                            }
+                            else{
+                                month += 12;
+                            }
+                        }
+                    }
+                    if(c[0]<=d[0]){
+                        month++;
+                        dat = d[0]-c[0];
+                    }else{
+                        dat = e[d[1]-2]-c[0]+d[0];
+                    }
+                    year = Math.floor(month/12);
+                    let date = 0;
+                    for(let i=c[2]; i<=d[2]; i++){
+                        e[1] = 28;
+                        if(i%400==0 || i%4==0 && i%100!=0){
+                            e[1] = 29;
+                        }
+                        let g = 0;
+                        let h = 12;
+                        if(c[2]==d[2]){
+                            if(c[1]==d[1]){
+                                date += d[0]-c[0];
+                                break;
+                            }else{
+                                g = c[1];
+                                h = d[1];
+                                date += e[c[1]-1]-c[0]-(e[d[1]-1]-d[0]);
+                            }
+                        }else{
+                            if(i == c[2]){
+                                date += e[c[1]-1]-c[0];
+                                g = c[1];
+                            }
+                            if(i == d[2]){
+                                date += d[0];
+                                h = d[1]-1;
+                            }
+                        }
+                        for(let j=g; j<h; j++){
+                            date += e[j];
+                        }
+                    }
+                    if(c[2]>d[2] || c[1]==0 ||
+                        d[1]==0 || c[0]==0 ||
+                        d[0]==0 || c[2]==0 ||
+                        d[2]==0){
+                        Solution.textContent = "INVALID INPUT";
+                    }else{
+                        Solution.textContent = year+" years, "+month%12+" months, "+dat+" days.\n OR\n"+
+                                                month+" months, "+dat+" days.\n OR\n"+date+" days.";
+                        Solution.style.whiteSpace = "pre-line";
+                    }
+                });
+            </script>
+        </center>
+    </body>
+</html>
